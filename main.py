@@ -1,13 +1,13 @@
 from flask import Flask, request
 import requests
 
-vulnerable_app_fork = Flask(__name__)
+Damn_vulnerable_app_fork = Flask(__name__)
 
-@vulnerable_app_fork.route('/greeting')
+@Damn_vulnerable_app_fork.route('/greeting')
 def greeting():
     return 'Hello, World!'
 
-@vulnerable_app_fork.route("/user_picture1")
+@Damn_vulnerable_app_fork.route("/user_picture1")
 # from: https://codeql.github.com/codeql-query-help/python/py-path-injection/#example
 def user_picture1():
     filename = request.args.get('p')
@@ -15,7 +15,7 @@ def user_picture1():
     data = open(filename, 'rb').read()
     return data
 
-@vulnerable_app_fork.route('/')
+@Damn_vulnerable_app_fork.route('/')
 def home():
     return 'vulnerable home route'
     # return '''<h1>SSRF</h1>
@@ -32,4 +32,4 @@ def home():
 
 
 if __name__ == '__main__':
-    vulnerable_app_fork.run(debug=True)
+    Damn_vulnerable_app_fork.run( debug=True )
